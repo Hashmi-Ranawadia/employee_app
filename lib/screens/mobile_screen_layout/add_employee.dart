@@ -53,7 +53,9 @@ class _AddEmployeeState extends State<AddEmployee> {
           backgroundColor: AppColors.primaryColor,
           elevation: 0,
           title: Text(
-            "Add Employee Details",
+            widget.employeeModel != null
+                ? "Edit Employee Details"
+                : "Add Employee Details",
             style: TextStyle(color: AppColors.whiteColor),
           ),
           leading: IconButton(
