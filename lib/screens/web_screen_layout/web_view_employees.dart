@@ -151,7 +151,7 @@ class _WebViewEmployeesState extends State<WebViewEmployees> {
                                                 context,
                                                 MaterialPageRoute(
                                                   builder: (context) =>
-                                                      AddEmployee(
+                                                      WebAddEmployee(
                                                           employeeModel: appCubit
                                                                   .employeeModel[
                                                               index]),
