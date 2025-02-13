@@ -3,10 +3,15 @@ import 'package:assignment_employee_app/responsive/responsive_layout.dart';
 import 'package:assignment_employee_app/screens/mobile_screen_layout/view_employees.dart';
 import 'package:assignment_employee_app/screens/web_screen_layout/web_view_employees.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((_) async {
+    runApp(const MyApp());
+  });
 }
 
 class MyApp extends StatelessWidget {
@@ -18,7 +23,9 @@ class MyApp extends StatelessWidget {
       create: (context) => AppCubit(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: ResponsiveLayout(mobileScreenLayout: ViewEmployees(), webScreenLayout: WebViewEmployees()),
+        home: ResponsiveLayout(
+            mobileScreenLayout: ViewEmployees(),
+            webScreenLayout: WebViewEmployees()),
       ),
     );
   }
